@@ -73,7 +73,13 @@ Here, $x$ represents the word embeddings, $g$ is the loss gradient, and $\epsilo
 To make sure the model didn't ignore rare emojis, we used a class-weighted cross-entropy loss function. This penalized the model more heavily when it misclassified rarer emojis.
 
 #### C. Hyperparameter Setup
-We searched for the best learning rates (between $2\times10^{-5}$ and $5\times10^{-5}$) and batch sizes. We also used early stopping with a patience of 4 epochs, tracking the **Validation Macro F1-Score** to prevent the model from just memorizing the training data (overfitting).
+We conducted an automated grid search to find the optimal training configuration. The best-performing hyperparameters discovered during our search were:
+* **Learning Rate (lr):** $2\times10^{-5}$
+* **Batch Size:** 16
+* **Epsilon ($\epsilon$):** 0.3
+* **Weight Decay:** 0.01
+
+We also used early stopping with a patience of 4 epochs, tracking the **Validation Macro F1-Score** to prevent the model from just memorizing the training data (overfitting).
 
 ---
 
@@ -83,9 +89,9 @@ We evaluated the models on our test set using **Accuracy** and **Macro F1-Score*
 ### Table 1: Model Comparison
 | Model | Test Accuracy | Test Macro F1-Score | Main Takeaway |
 | :--- | :---: | :---: | :--- |
-| **Model 1: TF-IDF + Logistic Reg** | 0.385 | 0.334 | Fast and lightweight, but struggles with complex word order. |
-| **Model 2: Baseline RoBERTa** | 0.082 | 0.051 | Performed poorly out-of-the-box; absolutely needs custom fine-tuning. |
-| **Model 3: Our FGM Fine-Tuned RoBERTa** | **0.732** | **0.701** | **Exceptional accuracy. Understands slang and context beautifully.** |
+| **Model 1: TF-IDF + Logistic Reg** | 0.417 | 0.333 | Fast and lightweight, but struggles with complex word order. |
+| **Model 2: Baseline RoBERTa** | 0.071 | 0.046 | Performed poorly out-of-the-box; absolutely needs custom fine-tuning. |
+| **Model 3: Our FGM Fine-Tuned RoBERTa** | **0.694** | **0.696** | **Exceptional accuracy. Understands slang and context beautifully.** |
 
 * **Learning Curves:** The validation loss curves showed perfect convergence. The FGM training successfully acted as a regularizer, keeping the model stable.
 * **Confusion Matrix:** The predictions created a strong diagonal line in our matrix, meaning the model is highly accurate. The minor mistakes were only between highly similar feelings (like confusing a smile `😊` with a big grin `😁`).
