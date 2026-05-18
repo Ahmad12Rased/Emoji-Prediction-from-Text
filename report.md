@@ -93,9 +93,19 @@ We evaluated the models on our test set using **Accuracy** and **Macro F1-Score*
 | **Model 2: Baseline RoBERTa** | 0.071 | 0.046 | Performed poorly out-of-the-box; absolutely needs custom fine-tuning. |
 | **Model 3: Our FGM Fine-Tuned RoBERTa** | **0.694** | **0.696** | **Exceptional accuracy. Understands slang and context beautifully.** |
 
+![Model Comparison Chart](figures/model_comparison.png)
+
 * **Learning Curves:** The validation loss curves showed perfect convergence. The FGM training successfully acted as a regularizer, keeping the model stable.
+  
+  ![Learning Curves Chart](figures/learning_curves.png)
+  
 * **Confusion Matrix:** The predictions created a strong diagonal line in our matrix, meaning the model is highly accurate. The minor mistakes were only between highly similar feelings (like confusing a smile `😊` with a big grin `😁`).
+  
+  ![Confusion Matrices Chart](figures/confusion_matrices.png)
+  
 * **Class Results:** The F1-scores were consistently high across all 11 emojis, proving that our weighted loss strategy worked perfectly.
+
+  ![F1 Comparison by Emoji Chart](figures/f1_comparison_by_emoji.png)
 
 ---
 
