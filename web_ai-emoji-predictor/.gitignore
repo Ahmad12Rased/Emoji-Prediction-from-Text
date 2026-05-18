@@ -1,0 +1,13 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Firebase configuration (excluded from GitHub for privacy and neatness)
+.firebase/
+.firebaserc
+firebase.json
