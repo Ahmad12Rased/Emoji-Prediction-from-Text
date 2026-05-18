@@ -415,7 +415,9 @@ export default function App() {
         <div className="container mx-auto px-4 flex flex-col items-center gap-6">
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://github.com/Ahmad12Rased/Emoji-Prediction-from-Text"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-black dark:hover:text-white transition-all shadow-sm"
               aria-label="GitHub"
             >
