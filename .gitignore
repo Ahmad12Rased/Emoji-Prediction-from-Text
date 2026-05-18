@@ -10,7 +10,7 @@ ENV/
 
 # Large ML files (excluded from GitHub due to 100MB file limit)
 model/
-data/
+
 
 # Node / Vite / React files
 web_ai-emoji-predictor/node_modules/
