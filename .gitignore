@@ -30,3 +30,10 @@ web_ai-emoji-predictor/.env*
 *.njsproj
 *.sln
 *.swp
+
+# Report, Presentation, and README files (kept locally, ignored on GitHub)
+report.md
+presentation_guide.md
+README.md
+web_ai-emoji-predictor/README.md
+
